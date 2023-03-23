@@ -21,7 +21,6 @@ class UploadController extends Controller
             $filename = md5_file($file->getRealPath());
             $filename = mb_convert_encoding($filename, 'UTF-8', 'auto'); // преобразуем имя файла в кодировку UTF-8
             $filename = $filename . '.' . $extension; // добавляем расширение файла
-            //$path = $file->storeAs('public', $filename); // сохраняем файл в папке "storage/app/public" с новым именем
             $path = asset('storage/'.$filename); // сохраняем файл в папке "storage/app/public" с новым именем
 
             return response()->json(['path' => $path], 200); // возвращаем путь к файлу в ответе
